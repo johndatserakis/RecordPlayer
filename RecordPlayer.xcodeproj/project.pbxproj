@@ -15,6 +15,7 @@
 		B1A066B51ACC558B0095DC77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A066B41ACC558B0095DC77 /* Images.xcassets */; };
 		B1A066B81ACC558B0095DC77 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1A066B61ACC558B0095DC77 /* LaunchScreen.xib */; };
 		B1A066C41ACC558B0095DC77 /* RecordPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A066C31ACC558B0095DC77 /* RecordPlayerTests.swift */; };
+		B1A066CE1ACC55A00095DC77 /* bensound-funkyelement.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1A066CD1ACC55A00095DC77 /* bensound-funkyelement.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		B1A066BD1ACC558B0095DC77 /* RecordPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecordPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A066C21ACC558B0095DC77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1A066C31ACC558B0095DC77 /* RecordPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPlayerTests.swift; sourceTree = "<group>"; };
+		B1A066CD1ACC55A00095DC77 /* bensound-funkyelement.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-funkyelement.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		B1A066A71ACC558A0095DC77 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1A066CD1ACC55A00095DC77 /* bensound-funkyelement.mp3 */,
 				B1A066A81ACC558A0095DC77 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -201,6 +204,7 @@
 				B1A066B81ACC558B0095DC77 /* LaunchScreen.xib in Resources */,
 				B1A066B51ACC558B0095DC77 /* Images.xcassets in Resources */,
 				B1A066AC1ACC558A0095DC77 /* GameScene.sks in Resources */,
+				B1A066CE1ACC55A00095DC77 /* bensound-funkyelement.mp3 in Resources */,
 				B1A066B31ACC558A0095DC77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

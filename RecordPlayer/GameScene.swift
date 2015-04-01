@@ -7,16 +7,47 @@
 //
 
 import SpriteKit
+import AVFoundation
+
+//Variable setup
+var disk = SKSpriteNode(imageNamed: "disknew001.png")
+var playButton = SKLabelNode(fontNamed:"Helvetica")
+var pauseButton = SKLabelNode(fontNamed:"Helvetica")
+let action = SKAction.rotateByAngle(CGFloat(-M_PI), duration:1.5)
+
+//Song setup
+let song1 = NSBundle.mainBundle().pathForResource("bensound-funkyelement", ofType:"mp3")
+let fileURL1 = NSURL(fileURLWithPath: song1!)
+var player1 = AVAudioPlayer(contentsOfURL: fileURL1, error: nil)
 
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
-        self.addChild(myLabel)
+        //Background Color
+        scene?.backgroundColor = UIColor.whiteColor()
+        
+        //Disk
+        disk.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 25)
+        disk.yScale = 1.00
+        disk.xScale = 1.00
+        disk.name = "disk"
+        self.addChild(disk)
+        
+        //Play Button
+        playButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 250)
+        playButton.name = "Play"
+        playButton.text = "Play"
+        playButton.fontSize = 40
+        playButton.fontColor = UIColor.blackColor()
+        self.addChild(playButton)
+        
+        //Play Button
+        pauseButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 250)
+        pauseButton.name = "Pause"
+        pauseButton.text = "Pause"
+        pauseButton.fontColor = UIColor.blackColor()
+        pauseButton.fontSize = 40;
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -24,21 +55,31 @@ class GameScene: SKScene {
         
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
+            let touchedNode = self.nodeAtPoint(location)
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            if touchedNode.name == "Play" {
+                disk.runAction(SKAction.repeatActionForever(action))
+                playButton.removeFromParent()
+                self.addChild(pauseButton)
+                
+                //Set up and start the player
+                player1.prepareToPlay()
+                player1.play()
+            }
             
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
+            if touchedNode.name == "Pause" {
+                disk.removeAllActions()
+                pauseButton.removeFromParent()
+                self.addChild(playButton)
+                
+                //Pause the player
+                player1.pause()
+                
+            }
             
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
         }
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
